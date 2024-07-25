@@ -2,6 +2,8 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
+#Replace each 'KEY' text with your own corresponding API keys from X (Twitter) and OpenAI respectively.
+
 TWITTER_API_KEY = os.getenv('TWITTER_API_KEY')
 TWITTER_API_SECRET = os.getenv('TWITTER_API_SECRET')
 TWITTER_ACCESS_TOKEN = os.getenv('TWITTER_ACCESS_TOKEN')
