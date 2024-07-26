@@ -1,0 +1,16 @@
+{
+    "TWITTER_API_KEY": "",
+    "TWITTER_API_SECRET": "",
+    "TWITTER_ACCESS_TOKEN": "",
+    "TWITTER_ACCESS_TOKEN_SECRET": "",
+    "OPENAI_API_KEY": "",
+    "PROMPT": "write a first person message about how much you love coding",
+    "PERSONA": "tired",
+    "USE_BEHAVIOUR": "first person",
+    "AVOID_BEHAVIOUR": "robotic",
+    "USE_HISTORY_CONTEXT_OPTION": "2",
+    "SCHEDULE_FREQUENCY": "Daily",
+    "SCHEDULE_DAY": "MON",
+    "SCHEDULE_TIME": "09:40",
+    "EXE_IN_ROOT": "True"
+}

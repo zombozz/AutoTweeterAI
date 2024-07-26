@@ -1,25 +1,61 @@
-from dotenv import load_dotenv
+import json
 import os
-load_dotenv()
 
-#Replace each 'KEY' text with your own corresponding API keys. 4 from X (Twitter) and 1 from OpenAI respectively. See Repo for more info.
-TWITTER_API_KEY = os.getenv('TWITTER_API_KEY')
-TWITTER_API_SECRET = os.getenv('TWITTER_API_SECRET')
-TWITTER_ACCESS_TOKEN = os.getenv('TWITTER_ACCESS_TOKEN')
-TWITTER_ACCESS_TOKEN_SECRET = os.getenv('TWITTER_ACCESS_TOKEN_SECRET')
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+class Config:
+    def __init__(self, json_file='config.json'):
+        self.json_file = json_file
+        self._load_from_json()
 
-#Configure Open AI input by editing the values in the "" below:
-prompt = "pretend you're a senile old man yapping to kids abou tthe good old days"
-persona = "witty, cool"
-use_behaviour = "1 or 2 emojis"
-avoid_behaviour = "repeating things similar to previous replies"
+    def _load_from_json(self):
+        if os.path.exists(self.json_file):
+            with open(self.json_file, 'r') as f:
+                data = json.load(f)
+                self.TWITTER_API_KEY = data.get('TWITTER_API_KEY', '')
+                self.TWITTER_API_SECRET = data.get('TWITTER_API_SECRET', '')
+                self.TWITTER_ACCESS_TOKEN = data.get('TWITTER_ACCESS_TOKEN', '')
+                self.TWITTER_ACCESS_TOKEN_SECRET = data.get('TWITTER_ACCESS_TOKEN_SECRET', '')
+                self.OPENAI_API_KEY = data.get('OPENAI_API_KEY', '')
+                self.prompt = data.get('PROMPT', "")
+                self.persona = data.get('PERSONA', "witty, cool")
+                self.use_behaviour = data.get('USE_BEHAVIOUR', "1 or 2 emojis")
+                self.avoid_behaviour = data.get('AVOID_BEHAVIOUR', "repeating things similar to previous replies")
+                self.use_history_context_option = int(data.get('USE_HISTORY_CONTEXT_OPTION', 1))
+                self.schedule_frequency = data.get('SCHEDULE_FREQUENCY', 'daily')
+                self.schedule_day = data.get('SCHEDULE_DAY', 'MON')
+                self.schedule_time = data.get('SCHEDULE_TIME', '9:00')
+                self.exe_in_root = data.get('EXE_IN_ROOT', 'False') == 'True'
+        else:
+            self._set_default_values()
 
-#Configure Open AI input using message history (message_history.txt file) as context by changing the number below:
-    #1 = Avoid using previous messages as context i.e. come up with something UNIQUE and DIFFERENT to previous/given messages.
-    #2 = Use previous messages as context i.e. come up with something SIMILAR to previous messages
-    #3 = Don't send AI previous messages as context
-use_history_context_option = 1
+    def _set_default_values(self):
+        default_config = {
+            'TWITTER_API_KEY': '',
+            'TWITTER_API_SECRET': '',
+            'TWITTER_ACCESS_TOKEN': '',
+            'TWITTER_ACCESS_TOKEN_SECRET': '',
+            'OPENAI_API_KEY': '',
+            'PROMPT': "Say a fun fact",
+            'PERSONA': "not robotic",
+            'USE_BEHAVIOUR': "friendly, maybe an emoji or 2",
+            'AVOID_BEHAVIOUR': "sounding robotic",
+            'USE_HISTORY_CONTEXT_OPTION': 1,
+            'SCHEDULE_FREQUENCY': 'daily',
+            'SCHEDULE_DAY': 'MON',
+            'SCHEDULE_TIME': '9:00',
+            'EXE_IN_ROOT': "True"
+        }
+        with open(self.json_file, 'w') as f:
+            json.dump(default_config, f, indent=4)
+        self._load_from_json()
 
-#Leave this alone
-exe_in_root = False
+    def update_json(self, **kwargs):
+        with open(self.json_file, 'r') as f:
+            data = json.load(f)
+
+        for key, value in kwargs.items():
+            if key in data:
+                data[key] = value
+                setattr(self, key, value)
+
+        with open(self.json_file, 'w') as f:
+            json.dump(data, f, indent=4)

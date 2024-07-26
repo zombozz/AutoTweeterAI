@@ -25,8 +25,6 @@ imports:
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#collections.abc">collections.abc</a>
  &#8226;   <a href="#copyreg">copyreg</a>
- &#8226;   <a href="#datetime">datetime</a>
- &#8226;   <a href="#edit_message_history">edit_message_history</a>
  &#8226;   <a href="#encodings">encodings</a>
  &#8226;   <a href="#encodings.aliases">encodings.aliases</a>
  &#8226;   <a href="#encodings.ascii">encodings.ascii</a>
@@ -158,12 +156,11 @@ imports:
  &#8226;   <a href="#keyword">keyword</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
+ &#8226;   <a href="#make_logs">make_logs</a>
  &#8226;   <a href="#ntpath">ntpath</a>
- &#8226;   <a href="#openai_integration">openai_integration</a>
  &#8226;   <a href="#operator">operator</a>
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#posixpath">posixpath</a>
- &#8226;   <a href="#prompt_constructor">prompt_constructor</a>
  &#8226;   <a href="#pyi_rth__tkinter.py">pyi_rth__tkinter.py</a>
  &#8226;   <a href="#pyi_rth_inspect.py">pyi_rth_inspect.py</a>
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
@@ -179,7 +176,6 @@ imports:
  &#8226;   <a href="#sre_parse">sre_parse</a>
  &#8226;   <a href="#stat">stat</a>
  &#8226;   <a href="#traceback">traceback</a>
- &#8226;   <a href="#tweepy_integration">tweepy_integration</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#warnings">warnings</a>
  &#8226;   <a href="#weakref">weakref</a>
@@ -5000,14 +4996,16 @@ imported by:
   <a target="code" href="///C:/Users/ab/Documents/code/2024/AutoTweeterAI/config.py" type="text/plain"><tt>config</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#dotenv">dotenv</a>
+    <a href="#json">json</a>
  &#8226;   <a href="#os">os</a>
 
   </div>
   <div class="import">
 imported by:
-    <a href="#openai_integration">openai_integration</a>
+    <a href="#gui">gui</a>
+ &#8226;   <a href="#openai_integration">openai_integration</a>
  &#8226;   <a href="#prompt_constructor">prompt_constructor</a>
+ &#8226;   <a href="#schedule_tweets">schedule_tweets</a>
  &#8226;   <a href="#tweepy_integration">tweepy_integration</a>
 
   </div>
@@ -5360,13 +5358,13 @@ imported by:
     <a href="#PySimpleGUI.PySimpleGUI">PySimpleGUI.PySimpleGUI</a>
  &#8226;   <a href="#_strptime">_strptime</a>
  &#8226;   <a href="#annotated_types">annotated_types</a>
- &#8226;   <a href="#app.py">app.py</a>
  &#8226;   <a href="#calendar">calendar</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.server">http.server</a>
  &#8226;   <a href="#httpx._client">httpx._client</a>
  &#8226;   <a href="#httpx._models">httpx._models</a>
+ &#8226;   <a href="#make_logs">make_logs</a>
  &#8226;   <a href="#oauthlib.common">oauthlib.common</a>
  &#8226;   <a href="#oauthlib.oauth2.rfc6749.utils">oauthlib.oauth2.rfc6749.utils</a>
  &#8226;   <a href="#openai._compat">openai._compat</a>
@@ -5560,8 +5558,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#config">config</a>
- &#8226;   <a href="#dotenv.ipython">dotenv.ipython</a>
+    <a href="#dotenv.ipython">dotenv.ipython</a>
  &#8226;   <a href="#dotenv.main">dotenv.main</a>
  &#8226;   <a href="#dotenv.parser">dotenv.parser</a>
  &#8226;   <a href="#dotenv.variables">dotenv.variables</a>
@@ -5673,7 +5670,7 @@ imported by:
   <a target="code" href="///C:/Users/ab/Documents/code/2024/AutoTweeterAI/edit_message_history.py" type="text/plain"><tt>edit_message_history</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imported by:
-    <a href="#app.py">app.py</a>
+    <a href="#gui">gui</a>
 
   </div>
 
@@ -9141,6 +9138,13 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#PySimpleGUI">PySimpleGUI</a>
+ &#8226;   <a href="#config">config</a>
+ &#8226;   <a href="#edit_message_history">edit_message_history</a>
+ &#8226;   <a href="#make_logs">make_logs</a>
+ &#8226;   <a href="#openai_integration">openai_integration</a>
+ &#8226;   <a href="#prompt_constructor">prompt_constructor</a>
+ &#8226;   <a href="#schedule_tweets">schedule_tweets</a>
+ &#8226;   <a href="#tweepy_integration">tweepy_integration</a>
 
   </div>
   <div class="import">
@@ -9562,7 +9566,6 @@ imported by:
 <span class="moduletype">Package</span>  <div class="import">
 imports:
     <a href="#enum">enum</a>
- &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
 
   </div>
   <div class="import">
@@ -9636,8 +9639,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#http">http</a>
- &#8226;   <a href="#httpx._models">httpx._models</a>
+    <a href="#httpx._models">httpx._models</a>
  &#8226;   <a href="#httpx._types">httpx._types</a>
  &#8226;   <a href="#requests.compat">requests.compat</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
@@ -12300,6 +12302,7 @@ imports:
 imported by:
     <a href="#PySimpleGUI.PySimpleGUI">PySimpleGUI.PySimpleGUI</a>
  &#8226;   <a href="#charset_normalizer.models">charset_normalizer.models</a>
+ &#8226;   <a href="#config">config</a>
  &#8226;   <a href="#distro.distro">distro.distro</a>
  &#8226;   <a href="#httpx._content">httpx._content</a>
  &#8226;   <a href="#httpx._main">httpx._main</a>
@@ -12598,6 +12601,25 @@ imported by:
     <a href="#shutil">shutil</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#zipfile">zipfile</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="make_logs"></a>
+  <a target="code" href="///C:/Users/ab/Documents/code/2024/AutoTweeterAI/make_logs.py" type="text/plain"><tt>make_logs</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#datetime">datetime</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#app.py">app.py</a>
+ &#8226;   <a href="#gui">gui</a>
+ &#8226;   <a href="#openai_integration">openai_integration</a>
+ &#8226;   <a href="#schedule_tweets">schedule_tweets</a>
 
   </div>
 
@@ -21488,12 +21510,13 @@ imported by:
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
     <a href="#config">config</a>
+ &#8226;   <a href="#make_logs">make_logs</a>
  &#8226;   <a href="#openai">openai</a>
 
   </div>
   <div class="import">
 imported by:
-    <a href="#app.py">app.py</a>
+    <a href="#gui">gui</a>
 
   </div>
 
@@ -21671,6 +21694,7 @@ imported by:
  &#8226;   <a href="#rsa.pkcs1">rsa.pkcs1</a>
  &#8226;   <a href="#rsa.randnum">rsa.randnum</a>
  &#8226;   <a href="#runpy">runpy</a>
+ &#8226;   <a href="#schedule_tweets">schedule_tweets</a>
  &#8226;   <a href="#shlex">shlex</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#socket">socket</a>
@@ -22010,7 +22034,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#app.py">app.py</a>
+    <a href="#gui">gui</a>
 
   </div>
 
@@ -27095,6 +27119,25 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="schedule_tweets"></a>
+  <a target="code" href="///C:/Users/ab/Documents/code/2024/AutoTweeterAI/schedule_tweets.py" type="text/plain"><tt>schedule_tweets</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#config">config</a>
+ &#8226;   <a href="#make_logs">make_logs</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#gui">gui</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="secrets"></a>
   <a target="code" href="///C:/Users/ab/AppData/Local/Programs/Python/Python312/Lib/secrets.py" type="text/plain"><tt>secrets</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -27732,6 +27775,7 @@ imported by:
  &#8226;   <a href="#pydantic._internal._git">pydantic._internal._git</a>
  &#8226;   <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
+ &#8226;   <a href="#schedule_tweets">schedule_tweets</a>
  &#8226;   <a href="#uuid">uuid</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
 
@@ -29070,7 +29114,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#app.py">app.py</a>
+    <a href="#gui">gui</a>
 
   </div>
 

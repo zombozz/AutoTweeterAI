@@ -10,3 +10,4 @@ tweepy
 openai
 PySimpleGUI
 python-dotenv
+pyinstaller
