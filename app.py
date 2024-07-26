@@ -6,14 +6,6 @@ from gui import setup_gui
 
 isTesting = True
 
-def setup_prompt():
-    prompt = "write a short message about life/project/work"
-    persona = "witty, cool"
-    use_behaviour = "1 or 2 emojis"
-    avoid_behaviour = "repeating things similar to previous replies"
-
-    return prompt, persona, use_behaviour, avoid_behaviour
-
 def setup():
     tweepy_client = setup_twitter_client()
     openai_client = setup_openai()
@@ -24,9 +16,8 @@ def setup():
 
 def main():
     tweepy_client, openai_client, file_path = setup()
-    prompt, persona, use_behaviour, avoid_behaviour = setup_prompt()
     history = read_history(file_path)
-    message, behaviour = construct_prompt(history, prompt, persona, use_behaviour, avoid_behaviour)
+    message, behaviour = construct_prompt(history)
     if not isTesting:
         content = get_reply(openai_client, message, behaviour)
         write_history(file_path, content)
