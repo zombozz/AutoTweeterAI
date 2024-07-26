@@ -33,7 +33,8 @@ Once you've got those though, it's pretty easy to use, but I might be biased. Le
 - **`gui.py`**: Provides a graphical interface for users to update API details and settings.
 
 ## Installation
-
+Download the distribution from here: https://github.com/zombozz/AutoTweeterAI/releases/tag/v1.0.0
+- OR
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/zombozz/AutoTweeterAI.git
