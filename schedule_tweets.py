@@ -24,7 +24,7 @@ def schedule_task():
     else:
         print("config exe NOT in root")
         exe_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'dist')
-    exe_file = os.path.join(exe_path, 'app.exe')
+    exe_file = os.path.join(exe_path, 'recur_tweet.exe')
     print(frequency)
     print(day)
     print(time)
