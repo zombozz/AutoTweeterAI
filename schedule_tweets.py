@@ -2,6 +2,7 @@ import os
 import subprocess
 from config import Config
 from make_logs import log_message
+import sys
 
 def get_current_schedule():
     config = Config()
@@ -18,16 +19,25 @@ def schedule_task():
     time = config.schedule_time
 
     task_name = "ScheduledAutoTweeterAI"
-    if config.exe_in_root == True:
-        print("config exe in root")
-        exe_path = os.path.abspath(os.path.dirname(__file__))
+
+    # if config.exe_in_root == True:
+    #     print("config exe in root")
+    #     exe_path = os.path.dirname(os.path.abspath(__file__))
+    #     log_message(exe_path)
+    # else:
+    #     print("config exe NOT in root")
+    #     exe_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'dist')
+
+    if getattr(sys, 'frozen', False):
+        # If the application is frozen, get the path to the executable
+        exe_path = os.path.dirname(sys.executable)
     else:
-        print("config exe NOT in root")
-        exe_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'dist')
+        # If the application is not frozen, get the path to the current script
+        exe_path = os.path.dirname(os.path.abspath(__file__))
+
     exe_file = os.path.join(exe_path, 'recur_tweet.exe')
-    print(frequency)
-    print(day)
-    print(time)
+    log_message(exe_file)
+
     if frequency == 'Weekly':
         cmd = f'schtasks /create /tn {task_name} /tr "{exe_file}" /sc weekly /d {day} /st {time}'
     elif frequency == 'Daily':
@@ -38,6 +48,7 @@ def schedule_task():
     print("cmd" + cmd)
     try:
         subprocess.run(cmd, check=True, shell=True)
+        log_message(f"Task '{task_name}' scheduled successfully.")
         return(f"Task '{task_name}' scheduled successfully.")
     except subprocess.CalledProcessError as e:
         log_message(f"Failed to schedule task. Error: {e}")
