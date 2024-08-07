@@ -1,6 +1,7 @@
 # AutoTweeterAI
 
 ## Overview
+*Latest version can be found at https://github.com/zombozz/AutoTweeterAI/releases*
 
 This Python-based tool integrates Twitter with OpenAI's GPT-4 model to automate tweet generation and scheduling. It manages Twitter API interactions using Tweepy and uses GPT-4 to generate content based on historical messages. The tool features a graphical user interface (GUI) built with PySimpleGUI, allowing users to configure Twitter API details, tweet settings, and scheduling options. It supports dynamic configuration updates and saves settings for persistent usage.
 
@@ -50,4 +51,4 @@ Download the latest AutoTweeterAI-x.y.z.zip from here: https://github.com/zomboz
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
-
+Testing scheduling
