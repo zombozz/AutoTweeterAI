@@ -3,7 +3,7 @@
 ## Overview
 *Latest version can be found at https://github.com/zombozz/AutoTweeterAI/releases*
 
-This Python-based tool integrates Twitter with OpenAI's GPT-4 model to automate tweet generation and scheduling. It manages Twitter API interactions using Tweepy and uses GPT-4 to generate content based on historical messages. The tool features a graphical user interface (GUI) built with PySimpleGUI, allowing users to configure Twitter API details, tweet settings, and scheduling options. It supports dynamic configuration updates and saves settings for persistent usage.
+This Python-based tool integrates Twitter with OpenAI's GPT-4 model to automate tweet generation and scheduling. It manages Twitter API interactions using Tweepy and uses GPT-4 to generate content based on historical messages. The tool features a graphical user interface (GUI) built with PySimpleGUI, allowing users to configure Twitter API details, tweet settings, and scheduling options. It supports dynamic configuration updates and saves settings for persistent usage. BYOK only for now.
 
 This is a more of a personal project to attempt growing my Twitter account without actually using Twitter (I don't like Twitter) so it's not really designed as user friendly as it could possibly be. This will require you to generate your own Twitter and OpenAI API keys (sorry you can't have mine🤪): 
 - Generate Twitter API Keys: https://developer.x.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api
