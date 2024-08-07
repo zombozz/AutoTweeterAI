@@ -1,4 +1,5 @@
 from make_logs import log_message
+# from schedule_tweets import testFP
 from gui import setup_gui, tweet_config_gui
 
 isTesting = False

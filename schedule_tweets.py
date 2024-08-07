@@ -19,32 +19,19 @@ def schedule_task():
     time = config.schedule_time
 
     task_name = "ScheduledAutoTweeterAI"
-
-    # if config.exe_in_root == True:
-    #     print("config exe in root")
-    #     exe_path = os.path.dirname(os.path.abspath(__file__))
-    #     log_message(exe_path)
-    # else:
-    #     print("config exe NOT in root")
-    #     exe_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'dist')
-
     if getattr(sys, 'frozen', False):
-        # If the application is frozen, get the path to the executable
         exe_path = os.path.dirname(sys.executable)
     else:
-        # If the application is not frozen, get the path to the current script
         exe_path = os.path.dirname(os.path.abspath(__file__))
 
-    exe_file = os.path.join(exe_path, 'recur_tweet.exe')
-    log_message(exe_file)
+    cmd = f'schtasks /create /tn "{task_name}" /tr "cmd.exe /c cd /d {exe_path} && recur_tweet.exe"'
 
     if frequency == 'Weekly':
-        cmd = f'schtasks /create /tn {task_name} /tr "{exe_file}" /sc weekly /d {day} /st {time}'
+        cmd += f' /sc weekly /d {day} /st {time}'
     elif frequency == 'Daily':
-        cmd = f'schtasks /create /tn {task_name} /tr "{exe_file}" /sc daily /st {time}'
+        cmd += f' /sc daily /st {time}'
     elif frequency == 'Hourly':
-        cmd = f'schtasks /create /tn {task_name} /tr "{exe_file}" /sc hourly /mo 1'
-
+        cmd += ' /sc hourly /mo 1'
     print("cmd" + cmd)
     try:
         subprocess.run(cmd, check=True, shell=True)
@@ -53,3 +40,13 @@ def schedule_task():
     except subprocess.CalledProcessError as e:
         log_message(f"Failed to schedule task. Error: {e}")
         return(f"Failed to schedule task. Error: {e}")
+    
+
+def testFP():
+    if getattr(sys, 'frozen', False):
+        exe_path = os.path.dirname(sys.executable)
+    else:
+        exe_path = os.path.dirname(os.path.abspath(__file__))
+
+    exe_file = os.path.join(exe_path, 'recur_tweet.exe')
+    log_message(exe_file)
